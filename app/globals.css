@@ -1,26 +1,44 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Lighter, elegant color palette */
+  --color-luxury-dark: #1a1a2e;
+  /* Deep Navy instead of near-black */
+  --color-luxury-medium: #16213e;
+  /* Medium Navy for sections */
+  --color-luxury-light: #0f3460;
+  /* Lighter accent for cards */
+  --color-luxury-gold: #D4AF37;
+  --color-luxury-gold-hover: #e8c547;
+  --color-luxury-red: #a52a2a;
+  /* Warmer red */
+  --color-luxury-cream: #f8f4e8;
+  /* Cream for text accents */
+
+  --font-serif: var(--font-playfair), serif;
+  --font-sans: var(--font-inter), sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Custom Base Styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply text-gray-100;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+}
+
+/* Utility classes for luxury feel */
+.text-gold-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-luxury-gold via-yellow-200 to-luxury-gold;
+}
+
+.luxury-border {
+  @apply border border-luxury-gold/30;
+}
+
+/* Section backgrounds for variety */
+.section-dark {
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.section-light {
+  background: linear-gradient(180deg, #16213e 0%, #0f3460 50%, #16213e 100%);
 }
