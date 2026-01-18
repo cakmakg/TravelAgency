@@ -1,21 +1,47 @@
-import { packages } from "@/lib/data";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
-import { Check, Calendar, MapPin, Star } from "lucide-react";
+import { Check, Calendar, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export function generateStaticParams() {
-    return packages.map((pkg) => ({
-        id: pkg.id.toString(),
-    }));
+interface ItineraryItem {
+    day: string;
+    title: string;
+    desc: string;
+}
+
+interface PackageData {
+    id?: number;
+    packageId?: number;
+    title: string;
+    duration: string;
+    price: string;
+    image: string;
+    features: string[];
+    description?: string;
+    inclusions?: string[];
+    itinerary?: ItineraryItem[];
+}
+
+async function getPackage(id: string): Promise<PackageData | null> {
+    try {
+        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3001';
+        const res = await fetch(`${baseUrl}/api/packages`, { cache: 'no-store' });
+        if (!res.ok) throw new Error('Failed to fetch');
+        const packages: PackageData[] = await res.json();
+        return packages.find((p) => (p.id || p.packageId) === parseInt(id)) || null;
+    } catch {
+        // Fallback to static data
+        const { packages } = await import('@/lib/data');
+        return packages.find((p) => p.id === parseInt(id)) || null;
+    }
 }
 
 export default async function PackagePage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
-    const pkg = packages.find((p) => p.id === parseInt(id));
+    const pkg = await getPackage(id);
 
     if (!pkg) {
         notFound();
@@ -55,39 +81,43 @@ export default async function PackagePage({ params }: { params: Promise<{ id: st
                         <div>
                             <h2 className="text-3xl font-serif text-white mb-6">Überblick</h2>
                             <p className="text-gray-300 leading-relaxed text-lg">
-                                {pkg.description}
+                                {pkg.description || "Keine Beschreibung verfügbar."}
                             </p>
                         </div>
 
                         {/* Inclusions */}
-                        <div>
-                            <h2 className="text-3xl font-serif text-white mb-6">Inklusivleistungen</h2>
-                            <div className="bg-white/5 border border-white/10 p-8 rounded-sm">
-                                <ul className="grid sm:grid-cols-2 gap-4">
-                                    {pkg.inclusions?.map((item, idx) => (
-                                        <li key={idx} className="flex items-start gap-3 text-gray-300">
-                                            <Check className="w-5 h-5 text-luxury-gold shrink-0 mt-0.5" />
-                                            <span>{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
+                        {pkg.inclusions && pkg.inclusions.length > 0 && (
+                            <div>
+                                <h2 className="text-3xl font-serif text-white mb-6">Inklusivleistungen</h2>
+                                <div className="bg-white/5 border border-white/10 p-8 rounded-sm">
+                                    <ul className="grid sm:grid-cols-2 gap-4">
+                                        {pkg.inclusions.map((item, idx) => (
+                                            <li key={idx} className="flex items-start gap-3 text-gray-300">
+                                                <Check className="w-5 h-5 text-luxury-gold shrink-0 mt-0.5" />
+                                                <span>{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
+                        )}
 
                         {/* Itinerary */}
-                        <div>
-                            <h2 className="text-3xl font-serif text-white mb-6">Reiseverlauf</h2>
-                            <div className="space-y-8 border-l border-white/10 pl-8 relative">
-                                {pkg.itinerary?.map((day, idx) => (
-                                    <div key={idx} className="relative">
-                                        <span className="absolute -left-[39px] top-0 w-5 h-5 rounded-full bg-luxury-gold border-4 border-luxury-dark" />
-                                        <span className="text-luxury-gold text-sm font-medium uppercase tracking-wider mb-2 block">{day.day}</span>
-                                        <h3 className="text-xl font-serif text-white mb-2">{day.title}</h3>
-                                        <p className="text-gray-400">{day.desc}</p>
-                                    </div>
-                                ))}
+                        {pkg.itinerary && pkg.itinerary.length > 0 && (
+                            <div>
+                                <h2 className="text-3xl font-serif text-white mb-6">Reiseverlauf</h2>
+                                <div className="space-y-8 border-l border-white/10 pl-8 relative">
+                                    {pkg.itinerary.map((day, idx) => (
+                                        <div key={idx} className="relative">
+                                            <span className="absolute -left-[39px] top-0 w-5 h-5 rounded-full bg-luxury-gold border-4 border-luxury-dark" />
+                                            <span className="text-luxury-gold text-sm font-medium uppercase tracking-wider mb-2 block">{day.day}</span>
+                                            <h3 className="text-xl font-serif text-white mb-2">{day.title}</h3>
+                                            <p className="text-gray-400">{day.desc}</p>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
+                        )}
 
                     </div>
 
@@ -108,7 +138,7 @@ export default async function PackagePage({ params }: { params: Promise<{ id: st
                                 </div>
                             </div>
 
-                            <Link href="/#contact" className="block">
+                            <Link href="/contact" className="block">
                                 <Button className="w-full" size="lg">Jetzt Anfragen</Button>
                             </Link>
                             <div className="text-center mt-4">

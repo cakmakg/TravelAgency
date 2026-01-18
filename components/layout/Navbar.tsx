@@ -7,6 +7,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { clsx } from "clsx";
 import { navLinks, siteConfig } from "@/lib/data";
 import { Button } from "@/components/ui/Button";
+import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 
 export const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -50,6 +51,7 @@ export const Navbar = () => {
                         <Phone className="w-4 h-4" />
                         <span className="hidden lg:inline">{siteConfig.phone}</span>
                     </a>
+                    <LanguageSwitcher />
                     <Link href="#contact">
                         <Button variant={isScrolled ? "primary" : "outline"} size="sm">
                             Anfrage

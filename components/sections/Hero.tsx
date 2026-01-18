@@ -49,6 +49,7 @@ export const Hero = () => {
                             src={heroImages[currentImageIndex].src}
                             alt={heroImages[currentImageIndex].alt}
                             fill
+                            sizes="100vw"
                             className="object-cover"
                             priority
                         />

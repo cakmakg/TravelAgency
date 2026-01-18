@@ -1,0 +1,67 @@
+{
+    "nav": {
+        "home": "Home",
+        "whyUs": "Why Us",
+        "packages": "Packages",
+        "fairs": "Trade Fairs 2026",
+        "gallery": "Gallery",
+        "contact": "Contact"
+    },
+    "hero": {
+        "subtitle": "Exclusive Tours to Russia",
+        "title": "Business & Cultural Tours",
+        "highlight": "for discerning professionals",
+        "description": "Combine your business goals at Moscow trade fairs with unforgettable, luxurious cultural experiences.",
+        "cta": "Inquire Now",
+        "explore": "Explore Packages"
+    },
+    "whyUs": {
+        "title": "Why RussoLux?",
+        "subtitle": "Trust our expertise for your Russia journey"
+    },
+    "packages": {
+        "title": "Our Packages",
+        "subtitle": "Exclusive travel experiences for the highest standards",
+        "details": "Details",
+        "from": "from"
+    },
+    "fairs": {
+        "title": "Trade Fairs 2026",
+        "subtitle": "The most important trade fairs in Moscow",
+        "more": "Learn more"
+    },
+    "gallery": {
+        "title": "Gallery",
+        "subtitle": "Glimpses of unforgettable experiences"
+    },
+    "testimonials": {
+        "title": "What Our Clients Say",
+        "subtitle": "Experiences from our satisfied travelers"
+    },
+    "contact": {
+        "title": "Get in Touch",
+        "subtitle": "We are happy to advise you personally",
+        "name": "Your Name",
+        "email": "Email Address",
+        "phone": "Phone",
+        "message": "Your Message",
+        "interest": "Interest in",
+        "submit": "Send Inquiry",
+        "success": "Thank you! We will contact you soon.",
+        "selectPackage": "Select Package",
+        "selectFair": "Select Trade Fair"
+    },
+    "footer": {
+        "legal": "Legal",
+        "impressum": "Legal Notice",
+        "privacy": "Privacy Policy",
+        "terms": "Terms & Conditions",
+        "rights": "All rights reserved."
+    },
+    "common": {
+        "loading": "Loading...",
+        "error": "Error",
+        "back": "Back",
+        "language": "Language"
+    }
+}

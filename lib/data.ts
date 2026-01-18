@@ -8,12 +8,11 @@ export const siteConfig = {
 };
 
 export const navLinks = [
-    { name: "Home", href: "#hero" },
-    { name: "Warum Wir", href: "#why-us" },
-    { name: "Pakete", href: "#packages" },
-    { name: "Messen 2026", href: "#fairs" },
-    { name: "Galerie", href: "#gallery" },
-    { name: "Kontakt", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "Pakete", href: "/packages" },
+    { name: "Messen 2026", href: "/fairs" },
+    { name: "Galerie", href: "/gallery" },
+    { name: "Kontakt", href: "/contact" },
 ];
 
 export const features = [

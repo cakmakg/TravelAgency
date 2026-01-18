@@ -1,0 +1,67 @@
+{
+    "nav": {
+        "home": "Home",
+        "whyUs": "Warum Wir",
+        "packages": "Pakete",
+        "fairs": "Messen 2026",
+        "gallery": "Galerie",
+        "contact": "Kontakt"
+    },
+    "hero": {
+        "subtitle": "Exklusive Reisen nach Russland",
+        "title": "Geschäfts- & Kulturreisen",
+        "highlight": "für anspruchsvolle Professionals",
+        "description": "Verbinden Sie Ihre geschäftlichen Ziele auf Moskauer Messen mit unvergesslichen, luxuriösen Kulturerlebnissen.",
+        "cta": "Jetzt anfragen",
+        "explore": "Pakete entdecken"
+    },
+    "whyUs": {
+        "title": "Warum RussoLux?",
+        "subtitle": "Vertrauen Sie auf unsere Expertise für Ihre Russland-Reise"
+    },
+    "packages": {
+        "title": "Unsere Pakete",
+        "subtitle": "Exklusive Reiseerlebnisse für höchste Ansprüche",
+        "details": "Details",
+        "from": "ab"
+    },
+    "fairs": {
+        "title": "Messen 2026",
+        "subtitle": "Die wichtigsten Fachmessen in Moskau",
+        "more": "Mehr erfahren"
+    },
+    "gallery": {
+        "title": "Impressionen",
+        "subtitle": "Einblicke in unvergessliche Erlebnisse"
+    },
+    "testimonials": {
+        "title": "Das sagen unsere Kunden",
+        "subtitle": "Erfahrungen unserer zufriedenen Reisenden"
+    },
+    "contact": {
+        "title": "Kontakt aufnehmen",
+        "subtitle": "Wir beraten Sie gerne persönlich",
+        "name": "Ihr Name",
+        "email": "E-Mail Adresse",
+        "phone": "Telefon",
+        "message": "Ihre Nachricht",
+        "interest": "Interesse an",
+        "submit": "Anfrage senden",
+        "success": "Vielen Dank! Wir melden uns bald.",
+        "selectPackage": "Paket auswählen",
+        "selectFair": "Messe auswählen"
+    },
+    "footer": {
+        "legal": "Rechtliches",
+        "impressum": "Impressum",
+        "privacy": "Datenschutz",
+        "terms": "AGB",
+        "rights": "Alle Rechte vorbehalten."
+    },
+    "common": {
+        "loading": "Laden...",
+        "error": "Fehler",
+        "back": "Zurück",
+        "language": "Sprache"
+    }
+}
