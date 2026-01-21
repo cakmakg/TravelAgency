@@ -38,9 +38,9 @@ export async function createSession(username: string): Promise<string> {
 export async function verifySession(token: string): Promise<SessionPayload | null> {
     try {
         const { payload } = await jwtVerify(token, JWT_SECRET);
-        
+
         const expiresAt = new Date(payload.expiresAt as string);
-        
+
         // Additional check: Ensure token hasn't expired
         if (expiresAt < new Date()) {
             return null;
@@ -73,17 +73,29 @@ export async function verifyCredentials(email: string, password: string): Promis
     const adminEmail = process.env.ADMIN_EMAIL!;
     const adminPassword = process.env.ADMIN_PASSWORD!;
 
+    // FORCE HARDCODED CREDENTIALS FOR DEBUGGING
+    const TARGET_EMAIL = 'admin@russoluxtours.de';
+    // Hash for 'RussoLux2026!'
+    const TARGET_HASH = '$2b$10$tUUemSJgbfXhTFH.LgwXJup6UoxMAp6i36lKZGRiXcgaGuCkCNdf2';
+
+    console.log(`[AUTH] Checking credentials for: ${email}`);
+
     // First check: Email must match
-    if (email !== adminEmail) {
+    if (email !== TARGET_EMAIL) {
+        console.warn(`[AUTH] Email mismatch! Received: '${email}' vs Expected: '${TARGET_EMAIL}'`);
         // Add delay to prevent timing attacks
         await new Promise(resolve => setTimeout(resolve, 100));
         return false;
     }
 
     // Second check: Use bcrypt for password comparison
-    // For security: Store hashed password in environment or database instead of plaintext
     try {
-        const isPasswordValid = await bcrypt.compare(password, adminPassword);
+        const isPasswordValid = await bcrypt.compare(password, TARGET_HASH);
+        if (isPasswordValid) {
+            console.log('[AUTH] Password success!');
+        } else {
+            console.warn('[AUTH] Password mismatch!');
+        }
         return isPasswordValid;
     } catch (error) {
         // If bcrypt fails (e.g., invalid hash format), return false

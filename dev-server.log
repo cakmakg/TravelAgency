@@ -1,0 +1,35 @@
+
+> russo-lux-tours@0.1.0 dev
+> next dev
+
+▲ Next.js 16.1.3 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.178.23:3000
+- Environments: .env
+
+✓ Starting...
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+✓ Ready in 682ms
+{"timestamp":"2026-01-20T23:53:52.310Z","level":"info","message":"Incoming request","context":"HTTP","request":{"method":"GET","url":"/admin/login","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"}}
+{"timestamp":"2026-01-20T23:53:52.315Z","level":"info","message":"Request completed","context":"HTTP","request":{"method":"GET","url":"/admin/login","ip":"::1"},"response":{"statusCode":200,"duration":5}}
+ GET /admin/login 200 in 1731ms (compile: 877ms, proxy.ts: 183ms, render: 672ms)
+{"timestamp":"2026-01-20T23:54:35.758Z","level":"info","message":"Incoming request","context":"HTTP","request":{"method":"GET","url":"/admin/login","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"}}
+{"timestamp":"2026-01-20T23:54:35.762Z","level":"info","message":"Request completed","context":"HTTP","request":{"method":"GET","url":"/admin/login","ip":"::1"},"response":{"statusCode":200,"duration":3}}
+ GET /admin/login 200 in 409ms (compile: 12ms, proxy.ts: 20ms, render: 377ms)
+{"timestamp":"2026-01-20T23:55:08.119Z","level":"info","message":"Incoming request","context":"HTTP","request":{"method":"POST","url":"/api/auth/login","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"}}
+{"timestamp":"2026-01-20T23:55:08.119Z","level":"info","message":"Request completed","context":"HTTP","request":{"method":"POST","url":"/api/auth/login","ip":"::1"},"response":{"statusCode":200,"duration":0}}
+Failed login attempt from IP: ::1, email: admin@russoluxtours.de
+ POST /api/auth/login 401 in 1591ms (compile: 476ms, proxy.ts: 11ms, render: 1104ms)
+  Reload env: .env
+{"timestamp":"2026-01-20T23:56:30.681Z","level":"info","message":"Incoming request","context":"HTTP","request":{"method":"GET","url":"/admin/login","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"}}
+{"timestamp":"2026-01-20T23:56:30.682Z","level":"info","message":"Request completed","context":"HTTP","request":{"method":"GET","url":"/admin/login","ip":"::1"},"response":{"statusCode":200,"duration":1}}
+{"timestamp":"2026-01-20T23:56:30.726Z","level":"info","message":"Incoming request","context":"HTTP","request":{"method":"GET","url":"/admin/login","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"}}
+{"timestamp":"2026-01-20T23:56:30.727Z","level":"info","message":"Request completed","context":"HTTP","request":{"method":"GET","url":"/admin/login","ip":"::1"},"response":{"statusCode":200,"duration":1}}
+ GET /admin/login 200 in 79ms (compile: 25ms, proxy.ts: 15ms, render: 40ms)
+ GET /admin/login 200 in 25ms (compile: 4ms, proxy.ts: 3ms, render: 19ms)
+{"timestamp":"2026-01-20T23:56:39.394Z","level":"info","message":"Incoming request","context":"HTTP","request":{"method":"GET","url":"/admin/login","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"}}
+{"timestamp":"2026-01-20T23:56:39.394Z","level":"info","message":"Request completed","context":"HTTP","request":{"method":"GET","url":"/admin/login","ip":"::1"},"response":{"statusCode":200,"duration":0}}
+{"timestamp":"2026-01-20T23:56:39.438Z","level":"info","message":"Incoming request","context":"HTTP","request":{"method":"GET","url":"/admin/login","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"}}
+{"timestamp":"2026-01-20T23:56:39.438Z","level":"info","message":"Request completed","context":"HTTP","request":{"method":"GET","url":"/admin/login","ip":"::1"},"response":{"statusCode":200,"duration":0}}
+ GET /admin/login 200 in 80ms (compile: 23ms, proxy.ts: 11ms, render: 46ms)
+ GET /admin/login 200 in 29ms (compile: 5ms, proxy.ts: 4ms, render: 21ms)

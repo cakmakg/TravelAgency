@@ -21,7 +21,7 @@ const PackageUpdateSchema = z.object({
     description: z.string().optional(),
     inclusions: z.array(z.string().min(1)).optional(),
     itinerary: z.array(ItinerarySchema).optional(),
-}).strict(); // Reject unknown fields
+}); // Remove .strict() to allow stripping of unknown fields like 'id'
 
 // GET all packages
 export async function GET() {
