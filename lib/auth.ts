@@ -67,22 +67,14 @@ export async function getSession(): Promise<SessionPayload | null> {
 
 /**
  * Verify admin credentials with bcrypt password hashing
- * Note: In production, use bcrypt.compare() with hashed password from database
+ * Credentials are read exclusively from environment variables
  */
 export async function verifyCredentials(email: string, password: string): Promise<boolean> {
     const adminEmail = process.env.ADMIN_EMAIL!;
-    const adminPassword = process.env.ADMIN_PASSWORD!;
-
-    // FORCE HARDCODED CREDENTIALS FOR DEBUGGING
-    const TARGET_EMAIL = 'admin@russoluxtours.de';
-    // Hash for 'RussoLux2026!'
-    const TARGET_HASH = '$2b$10$tUUemSJgbfXhTFH.LgwXJup6UoxMAp6i36lKZGRiXcgaGuCkCNdf2';
-
-    console.log(`[AUTH] Checking credentials for: ${email}`);
+    const adminPasswordHash = process.env.ADMIN_PASSWORD!;
 
     // First check: Email must match
-    if (email !== TARGET_EMAIL) {
-        console.warn(`[AUTH] Email mismatch! Received: '${email}' vs Expected: '${TARGET_EMAIL}'`);
+    if (email !== adminEmail) {
         // Add delay to prevent timing attacks
         await new Promise(resolve => setTimeout(resolve, 100));
         return false;
@@ -90,12 +82,7 @@ export async function verifyCredentials(email: string, password: string): Promis
 
     // Second check: Use bcrypt for password comparison
     try {
-        const isPasswordValid = await bcrypt.compare(password, TARGET_HASH);
-        if (isPasswordValid) {
-            console.log('[AUTH] Password success!');
-        } else {
-            console.warn('[AUTH] Password mismatch!');
-        }
+        const isPasswordValid = await bcrypt.compare(password, adminPasswordHash);
         return isPasswordValid;
     } catch (error) {
         // If bcrypt fails (e.g., invalid hash format), return false

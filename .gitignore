@@ -39,3 +39,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# documentation (keep only README.md)
+*.md
+!README.md
+
+# sensitive generated files
+secret_hash.txt
+
+# backups and logs
+/backups
+/logs
